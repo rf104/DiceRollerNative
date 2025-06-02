@@ -19,6 +19,14 @@ import {
   Pressable,
 } from 'react-native';
 
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
+// Optional configuration
+const options = {
+  enableVibrateFallback: true,
+  ignoreAndroidSystemSettings: false,
+};
+
+
 import {
   Colors,
   DebugInstructions,
@@ -68,6 +76,8 @@ function App(): React.JSX.Element {
       else if (randomImage===5) setDiceImage(DiceFive)
       else if (randomImage===6) setDiceImage(DiceSix)
       else setDiceImage(DiceOne)
+
+      ReactNativeHapticFeedback.trigger("impactLight", options);
   }
 
   return (
